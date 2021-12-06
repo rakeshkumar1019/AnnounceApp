@@ -13,7 +13,9 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("viewFile", "index.jsp");
-        request.setAttribute("pageTitle", "Keep a diary, and someday it'll keep you.");
+        request.setAttribute("pageTitle", "Announce is an web based communication system for trainings, seminars and trade fairs. It enables real time communication to all participants by actively posting relevant and valuable information to them.
+
+");
         request.setAttribute("diaryList", Helper.diaryRepository().getAll());
         request.setAttribute("userList", Helper.userRepository().getAll());
         Helper.view(request, response);
