@@ -19,7 +19,7 @@ public class Helper {
 
     public static String VIEW_FOLDER = "WEB-INF/view";
     public static String NOT_FOUND = "notfound.jsp";
-    public static String DB_SOURCE = "jdbc:mysql://jspdiary.cgerml78x6pf.ap-south-1.rds.amazonaws.com:3306/jspdiary?user=admin&password=adminuser";
+    public static String DB_SOURCE =  "jdbc:mysql://jspdiary.cgerml78x6pf.ap-south-1.rds.amazonaws.com:3306/jspDiary?useSSL=false&serverTimezone=UTC&user=admin&password=adminuser&charset=UTF-8";
     private static IDatabase DATABASE = null;
 
     public static void view(HttpServletRequest request, HttpServletResponse response)
