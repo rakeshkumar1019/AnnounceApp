@@ -6,7 +6,7 @@
     <nav class="blue darken-3" role="navigation">
         <div class="nav-wrapper container">
 
-            <a href="." class="brand-logo">JSP APP</a>
+            <a href="." class="brand-logo">NEXTSTEP</a>
 
             <ul class="right hide-on-med-and-down">
                 <li><a href="."><i class="material-icons right">home</i> Home</a></li>
