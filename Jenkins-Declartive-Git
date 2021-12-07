@@ -4,6 +4,9 @@ pipeline {
      tools {
        maven 'maven'
      }
+     environment {
+      DOCKER_TAG = getDockerTag()
+     }
 
     stages {
         stage('Git Checkout') {
@@ -11,12 +14,14 @@ pipeline {
                git credentialsId: 'git_credential', url: 'https://github.com/rakeshkumar1019/java-jsp-diary.git'
             }
         }
+        
         stage('Maven Build') {
             steps {
                 sh "mvn clean package"
                 sh "mv target/*.war target/myweb.war"
             }
         }
+        
         stage('Deploy') {
            steps {
                sshagent(['tomcat-new']) {
@@ -28,5 +33,22 @@ pipeline {
                }
              }
         }
+        
+        stage('Build Docker Image') {
+            steps {
+                sh "docker build -t rakesh1019/javaapp:{DOCKER_TAG}"
+            }
+        }
+        
+        
     }
 }
+
+def getDockerTag(){
+     def tag = sh script: 'git rev-parse HEAD', retirnStdout: true
+     return tag
+}
+
+
+
+
