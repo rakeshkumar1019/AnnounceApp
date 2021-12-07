@@ -3,7 +3,7 @@
 <% User currentUser = (User) session.getAttribute("user");%>
 
 <header>
-    <nav class="blue darken-3" role="navigation">
+    <nav class="darken-3" role="navigation" style="background-color:#183d62 !important">
         <div class="nav-wrapper container">
 
             <a href="." class="brand-logo">Community Announcement Portal</a>
