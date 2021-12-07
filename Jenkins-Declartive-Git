@@ -1,3 +1,4 @@
+currentBuild.displayName="Community-Announcement-Portal-#"+currentBuild.number
 pipeline {
     agent any
      tools {
