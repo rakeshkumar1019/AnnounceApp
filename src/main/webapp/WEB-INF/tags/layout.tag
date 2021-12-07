@@ -5,7 +5,7 @@
 
     <t:head />
 
-    <body class="" background-color="white !important">
+    <body background-color="#cecece7a !important">
 
         <t:navbar />
 
