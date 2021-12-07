@@ -5,7 +5,7 @@
 
     <t:head />
 
-    <body class="blue lighten-4">
+    <body class="blue lighten-4" background-color="white !important">
 
         <t:navbar />
 
@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <main class="container">
+        <main class="container" style="font-size="2.2rem !important ">
             <jsp:doBody />
         </main>
 
