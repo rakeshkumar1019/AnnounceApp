@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+     tools {
+       maven 'maven'
+     }
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+               git credentialsId: 'git_credential', url: 'https://github.com/rakeshkumar1019/java-jsp-diary.git
+            }
+        }
+        stage('Maven Build') {
+            steps {
+                sh "mvn clean package"
+                sh "mv target/*.war target/myweb.war"
+            }
+        }
+        stage('Deploy') {
+           steps {
+               sshagent(['tomcat-new']) {
+                   sh """
+                      scp -o StrictHostKeyChecking=no target/myweb.war centos@15.207.106.100:/opt/tomcat/webapps/
+                      ssh centos@15.207.106.100 /opt/tomcat/bin/shutdown.sh
+                      ssh centos@15.207.106.100 /opt/tomcat/bin/startup.sh
+                   """
+               }
+             }
+        }
+    }
+}
