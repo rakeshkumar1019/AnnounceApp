@@ -6,7 +6,7 @@
     <nav class="blue darken-3" role="navigation">
         <div class="nav-wrapper container">
 
-            <a href="." class="brand-logo">The Announce</a>
+            <a href="." class="brand-logo">Community Announcement Portal</a>
 
             <ul class="right hide-on-med-and-down">
                 <li><a href="."><i class="material-icons right">home</i> Home</a></li>
