@@ -9,13 +9,13 @@
 
         <t:navbar />
 
-        <div class="section no-pad-bot">
+        <div class="section no-pad-bot" >
             <div class="container">
-                <h1 class="header center">${pageTitle}</h1>
+                <h1 class="header center"  style="font-size="2.2rem !important " >${pageTitle}</h1>
             </div>
         </div>
 
-        <main class="container" style="font-size="2.2rem !important ">
+        <main class="container">
             <jsp:doBody />
         </main>
 
