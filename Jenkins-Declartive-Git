@@ -59,9 +59,15 @@ pipeline {
                      sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@13.127.176.63:/home/centos/"
                      script{
                            try{
-                               sh "ssh centos@13.127.176.63 kubectl apply -f ."      
+                               sh """
+                                   sudo su
+                                   ssh centos@13.127.176.63 kubectl apply -f .
+                               """      
                            }catch(error){
-                               sh "ssh centos@13.127.176.63 kubectl create -f ."      
+                               sh """
+                                   sudo su
+                                   ssh centos@13.127.176.63 kubectl create -f .
+                                """      
                            }
                      }
                      
