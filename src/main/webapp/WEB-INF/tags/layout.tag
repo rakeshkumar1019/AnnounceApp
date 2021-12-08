@@ -11,7 +11,7 @@
 
         <div class="section no-pad-bot" >
             <div class="container">
-                <h1 class="header center"  style="font-size:2.2rem !important " >${pageTitle}</h1>
+                <h1 class="header center"  style="font-size:2.2rem !important;text-transform: uppercase;" >${pageTitle}</h1>
             </div>
         </div>
 
