@@ -42,6 +42,15 @@ pipeline {
             }
         }
         
+         stage('DockerHub Push Image') {
+            steps {
+                 withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
+                      sh "docker login -u rakesh1019 -p ${dockerHubPwd}"
+                      sh "docker push rakesh1019/javahome:${DOCKER_TAG}"
+                 }
+            }
+        }
+        
         
     }
 }
