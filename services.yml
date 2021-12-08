@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: community_announcement_portal
+spec:
+  selector:
+    app: community_announcement_portal
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer   
