@@ -60,11 +60,11 @@ pipeline {
                      script{
                            try{
                                sh """
-                                   ssh root@13.127.176.63 kubectl apply -f .
+                                   ssh centos@13.127.176.63 kubectl apply -f .
                                """      
                            }catch(error){
                                sh """
-                                   ssh root@13.127.176.63 kubectl create -f .
+                                   ssh centos@13.127.176.63 kubectl create -f .
                                 """      
                            }
                      }
