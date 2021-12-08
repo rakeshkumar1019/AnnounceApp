@@ -36,7 +36,10 @@ pipeline {
         
         stage('Build Docker Image') {
             steps {
-                sh "sudo docker build . -t httpd"
+                sh """
+                   sudo su
+                   docker build . -t httpd
+                """
             }
         }
         
