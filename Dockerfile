@@ -6,7 +6,7 @@ RUN chmod +x mvnw \
     && ./mvnw clean package
 
 FROM openjdk:8-jre-alpine
-COPY --from=build /usr/app/target/*.jar app.jar
+COPY --from=build /usr/app/target/*.war app.war
 EXPOSE 8081
 
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","app.war"]
