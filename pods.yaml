@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: community_announcement_portal
-      image: rakesh1019/javahome:v1
+      image: rakesh1019/javahome:tagVersion
       ports:
         - containerPort: 8080
