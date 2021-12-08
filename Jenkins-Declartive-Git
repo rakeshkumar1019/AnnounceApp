@@ -37,7 +37,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh """
-                   docker build . -t httpd
+                   docker build . -t rakesh1019/javahome:${DOCKER_TAG}
                 """
             }
         }
