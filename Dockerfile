@@ -1,5 +1,12 @@
-FROM openjdk:12-alpine
+FROM openjdk:8-jdk-alpine as build
+COPY . /usr/app
+WORKDIR /usr/app
+RUN chmod +x mvnw \
+    && ./mvnw --version \
+    && ./mvnw clean package
 
-COPY target/java-jsp-diary-*.war /java-jsp-diary.war
+FROM openjdk:8-jre-alpine
+COPY --from=build /usr/app/target/*.jar app.jar
+EXPOSE 8081
 
-CMD ["java" , "-jar", "/java-jsp-diary.war"]
+ENTRYPOINT ["java","-jar","app.jar"]
