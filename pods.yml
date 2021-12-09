@@ -11,3 +11,25 @@ spec:
        image: rakesh1019/javahome:tagVersion
        ports:
          - containerPort: 80
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ann-deployment
+  labels:
+    app: ann
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ann
+  template:
+    metadata:
+      labels:
+        app: ann
+    spec:
+      containers:
+      - name: ann
+        image: rakesh1019/javahome:tagVersion
+        ports:
+        - containerPort: 80
