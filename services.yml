@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: community_announcement_portal
+  name: announcement
 spec:
   selector:
-    app: community_announcement_portal
+    app: announcement
   ports:
   - protocol: TCP
     port: 80
