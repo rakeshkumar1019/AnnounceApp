@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: announcement
-  labels:
-    app: announcement
+   name: announcement
+   labels:
+       disk: ssdtype
+       dish: mango
 spec:
-  containers:
-    - name: announcement
-      image: rakesh1019/javahome:tagVersion
-      ports:
-        - containerPort: 8080
+   containers:
+     - name: c1
+       image: rakesh1019/javahome:tagVersion
+       ports:
+         - containerPort: 80
