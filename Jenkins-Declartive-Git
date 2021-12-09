@@ -26,9 +26,9 @@ pipeline {
            steps {
                sshagent(['tomcat-new']) {
                    sh """
-                      scp -o StrictHostKeyChecking=no target/myweb.war ec2-user@13.233.229.109:/opt/tomcat/webapps/
-                      ssh ec2-user@13.233.229.109 /opt/tomcat/bin/shutdown.sh
-                      ssh ec2-user@13.233.229.109 /opt/tomcat/bin/startup.sh
+                      scp -o StrictHostKeyChecking=no target/myweb.war ec2-user@13.127.176.212:/opt/tomcat/webapps/
+                      ssh ec2-user@13.127.176.212 /opt/tomcat/bin/shutdown.sh
+                      ssh ec2-user@13.127.176.212 /opt/tomcat/bin/startup.sh
                    """
                }
              }
@@ -60,11 +60,11 @@ pipeline {
                      script{
                            try{
                                sh """
-                                   ssh centos@3.110.27.169 kubectl apply -f .
+                                   ssh centos@13.234.78.91 kubectl apply -f .
                                """      
                            }catch(error){
                                sh """
-                                   ssh centos@3.110.27.169 kubectl create -f .
+                                   ssh centos@13.234.78.91 kubectl create -f .
                                 """      
                            }
                      }
