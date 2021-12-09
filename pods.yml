@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: community_announcement_portal
+  name: announcement
   labels:
-    app: community_announcement_portal
+    app: announcement
 spec:
   containers:
-    - name: community_announcement_portal
+    - name: announcement
       image: rakesh1019/javahome:tagVersion
       ports:
         - containerPort: 8080
