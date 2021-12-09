@@ -4,4 +4,4 @@
 
 FROM tomcat
 
-COPY /*.war /usr/local/tomcat/webapps/
+COPY *.war /usr/local/tomcat/webapps/
