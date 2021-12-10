@@ -28,7 +28,7 @@ pipeline {
             steps {
               sshagent(['k8password']) {
                   sh """
-                   sh "scp -o StrictHostKeyChecking=no myweb.war centos@3.108.221.154:/home/centos/"
+                   sh "scp -o StrictHostKeyChecking=no target/myweb.war centos@3.108.221.154:/home/centos/"
                    docker build . -t rakesh1019/javahome:${DOCKER_TAG}
                   """
                } 
