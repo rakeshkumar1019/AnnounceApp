@@ -50,7 +50,7 @@ pipeline {
                  sh "chmod +x changeTag.sh"
                  sh "./changeTag.sh ${DOCKER_TAG}"
                   sshagent(['k8password']) {
-                     sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@13.234.217.99:/home/centos/"
+                     sh "scp -o StrictHostKeyChecking=no  java-app-pod.yml centos@13.234.217.99:/home/centos/"
                      script{
                            try{
                                sh """
