@@ -9,4 +9,4 @@ spec:
     - name: cap
       image: rakesh1019/javahome:tagVersion
       ports:
-        - containerPort: 27017
+        - containerPort: 8080
