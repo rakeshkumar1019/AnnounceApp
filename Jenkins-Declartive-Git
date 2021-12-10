@@ -28,7 +28,6 @@ pipeline {
             steps {
               sshagent(['k8password']) {
                   sh """
-                   
                    docker build . -t rakesh1019/javahome:${DOCKER_TAG}
                   """
                } 
