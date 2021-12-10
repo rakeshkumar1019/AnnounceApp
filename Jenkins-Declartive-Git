@@ -26,9 +26,9 @@ pipeline {
            steps {
                sshagent(['tomcat-new']) {
                    sh """
-                      scp -o StrictHostKeyChecking=no target/myweb.war ec2-user@13.127.176.212:/opt/tomcat/webapps/
-                      ssh ec2-user@13.127.176.212 /opt/tomcat/bin/shutdown.sh
-                      ssh ec2-user@13.127.176.212 /opt/tomcat/bin/startup.sh
+                      scp -o StrictHostKeyChecking=no target/myweb.war ec2-user@3.110.170.59:/opt/tomcat/webapps/
+                      ssh ec2-user@3.110.170.59 /opt/tomcat/bin/shutdown.sh
+                      ssh ec2-user@3.110.170.59 /opt/tomcat/bin/startup.sh
                    """
                }
              }
@@ -56,15 +56,15 @@ pipeline {
                  sh "chmod +x changeTag.sh"
                  sh "./changeTag.sh ${DOCKER_TAG}"
                   sshagent(['k8password']) {
-                     sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@13.234.78.91:/home/centos/"
+                     sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@3.108.221.154:/home/centos/"
                      script{
                            try{
                                sh """
-                                   ssh centos@13.234.78.91 kubectl apply -f .
+                                   ssh centos@3.108.221.154 kubectl apply -f .
                                """      
                            }catch(error){
                                sh """
-                                   ssh centos@13.234.78.91 kubectl create -f .
+                                   ssh centos@3.108.221.154 kubectl create -f .
                                 """      
                            }
                      }
