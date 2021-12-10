@@ -1,5 +1,9 @@
-FROM tomcat:8
-RUN mv webapps webappsbkp
-RUN mv webapps.dist webapps
+FROM tomcat:latest
 
-COPY target/myweb.war /usr/local/tomcat/webapps/myweb.war
+LABEL maintainer="Rakesh Kumar Singh"
+
+ADD /target/myweb.war /usr/local/tomcat/webapps/
+
+EXPOSE 8080
+
+CMD ["catalina.sh", "run"]
