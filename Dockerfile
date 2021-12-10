@@ -1,3 +1,6 @@
-FROM openjdk:12-alpine
+FROM tomcat:8.0-alpine
 
-CMD ["java" , "-jar", "/myweb.war"]
+ADD myweb.war /usr/local/tomcat/webapps/
+
+EXPOSE 8080
+CMD ['catalina.sh","run"]
