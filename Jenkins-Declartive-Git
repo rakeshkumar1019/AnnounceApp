@@ -34,13 +34,13 @@ pipeline {
              }
         }
         
-        stage('Build Docker Image') {
-            steps {
-                sh """
-                   docker build . -t rakesh1019/javahome:${DOCKER_TAG}
-                """
-            }
-        }
+       # stage('Build Docker Image') {
+        #    steps {
+         #       sh """
+          #         docker build . -t rakesh1019/javahome:${DOCKER_TAG}
+           #     """
+            #}
+        #}
         
          stage('DockerHub Push Image') {
             steps {
