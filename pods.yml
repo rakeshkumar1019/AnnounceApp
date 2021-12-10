@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: cap
+  name: nono
   labels:
-    app: cap
+    app: nono
 spec:
   containers:
-    - name: cap
+    - name: nono
       image: rakesh1019/javahome:tagVersion
       ports:
         - containerPort: 8080
