@@ -11,5 +11,4 @@ spec:
       image: rakesh1019/javahome:tagVersion
       ports:
         - containerPort: 8080
-        - hostPort: 8080
 
