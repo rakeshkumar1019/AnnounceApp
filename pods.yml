@@ -1,12 +1,31 @@
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: nono
+#   labels:
+#     app: nono
+# spec:
+#   containers:
+#     - name: nono
+#       image: rakesh1019/javahome:tagVersion
+#       ports:
+#         - containerPort: 8080
+
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nono
-  labels:
-    app: nono
+  name: FreeSwitch
 spec:
+  publicIP: 13.235.100.179
   containers:
-    - name: nono
-      image: rakesh1019/javahome:tagVersion
-      ports:
-        - containerPort: 8080
+  - image: rakesh1019/javahome:tagVersion
+    name: freeswitch
+    ports:
+    - containerPort: 8080
+      protocol:
+      - TCP
+      - UDP
+#      - SCTP
+    - containerPort: 8080
+      protocol:
+      - UDP
