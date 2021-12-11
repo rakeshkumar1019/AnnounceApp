@@ -1,43 +1,15 @@
-# apiVersion: v1
-# kind: Pod
-# metadata:
-#   name: testings
-#   labels:
-#     app: testings
-# spec:
-# #   publicIP: 13.235.100.179
-#   containers:
-#     - name: testings
-#       image: rakesh1019/javahome:tagVersion
-#       ports:
-#         - containerPort: 8080
-
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: tomcat-deployment
+  name: homecoming
   labels:
-    app: tomcat
+    app: homecoming
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: tomcat
-  replicas: 2
-  template:
-    metadata:
-      labels:
-        app: tomcat
-    spec:
-      containers:
-      - name: tomcat-container
-        image: tomcat:8.0
-        ports:
+#   publicIP: 13.235.100.179
+  containers:
+    - name: homecoming
+      image: rakesh1019/javahome:tagVersion
+      ports:
         - containerPort: 8080
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+
+
