@@ -1,15 +1,20 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: homecoming
-  labels:
-    app: homecoming
-spec:
-#   publicIP: 13.235.100.179
-  containers:
-    - name: homecoming
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+ name: my-deployment 
+spec: 
+ replicas: 2 
+ strategy: 
+  type: Recreate 
+ selector: 
+  matchLabels: 
+   app: my-app 
+ template: 
+   metadata: 
+    labels: 
+     app: my-app 
+     env: prod 
+   spec: 
+    containers: 
+    - name: my-deployment-container 
       image: rakesh1019/javahome:tagVersion
-      ports:
-        - containerPort: 8080
-
-
