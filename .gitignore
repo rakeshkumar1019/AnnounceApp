@@ -1,1 +1,4 @@
 /target/
+*.yml
+Jenkins-Declartive-Git
+Dockerfile
