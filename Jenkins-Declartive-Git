@@ -53,7 +53,7 @@ pipeline {
 
                  script{
 
-                    if(BRANCH_NAME == "main") {    
+                    if(BRANCH_NAME == "master") {    
                         sshagent(['k8password']) {
                                 sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@15.206.89.156:/home/centos/"
                                 try{
