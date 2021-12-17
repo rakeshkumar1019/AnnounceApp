@@ -50,7 +50,7 @@ pipeline {
             steps {
                  sh "chmod +x changeTag.sh"
                  sh "./changeTag.sh ${DOCKER_TAG}"
-
+                 echo BRANCH_NAME
                  script{
 
                     if(BRANCH_NAME == "master") { 
