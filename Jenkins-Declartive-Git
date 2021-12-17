@@ -6,6 +6,7 @@ pipeline {
      }
      environment {
       DOCKER_TAG = getDockerTag()
+      BRANCH_NAME = "${GIT_BRANCH.split("/")[0]}"
      }
 
     stages {
@@ -45,27 +46,55 @@ pipeline {
             }
         }
         
-          stage('Deploying tomcat on k8s ') {
+        stage('Deploying tomcat on k8s ') {
             steps {
                  sh "chmod +x changeTag.sh"
                  sh "./changeTag.sh ${DOCKER_TAG}"
-                  sshagent(['k8password']) {
-                     sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@13.127.250.251:/home/centos/"
-                     script{
-                           try{
-                               sh """
-                                   ssh centos@13.127.250.251 kubectl apply -f .
-                               """      
-                           }catch(error){
-                               sh """
-                                   ssh centos@13.127.250.251 kubectl create -f .
-                                """      
-                           }
-                     }
-                     
-                  }
+
+                 script{
+
+                    if(BRANCH_NAME == "master") {    
+                        sshagent(['k8password']) {
+                                sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@15.206.89.156:/home/centos/"
+                                try{
+                                    sh """ ssh centos@15.206.89.156 kubectl apply -f . """      
+                                }catch(error){
+                                    sh """ ssh centos@15.206.89.156 kubectl create -f .  """      
+                                }   
+                        }
+                    }
+
+
+                    if(BRANCH_NAME == "development") {
+                       sshagent(['k8password']) {
+                                sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@13.232.231.229:/home/centos/"
+                                try{
+                                    sh """ ssh centos@13.232.231.229 kubectl apply -f . """      
+                                }catch(error){
+                                    sh """ ssh centos@13.232.231.229 kubectl create -f .  """      
+                                }   
+                        }
+                    }
+
+
+                    if(BRANCH_NAME == "staging") {
+                        sshagent(['k8password']) {
+                                sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@3.111.34.225:/home/centos/"
+                                try{
+                                    sh """ ssh centos@3.111.34.225 kubectl apply -f . """      
+                                }catch(error){
+                                    sh """ ssh centos@3.111.34.225 kubectl create -f .  """      
+                                }   
+                        }
+
+                    }
+
+
+                 }
+
+
             }
-        }
+       }
         
         
       
