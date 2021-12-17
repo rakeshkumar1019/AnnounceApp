@@ -6,7 +6,7 @@
     <nav class="darken-3" role="navigation" style="background-color:#183d62 !important">
         <div class="nav-wrapper container">
 
-            <a href="." class="brand-logo">Community Announcement Portals-dev123</a>
+            <a href="." class="brand-logo">Community Announcement Portals-dev1234</a>
 
             <ul class="right hide-on-med-and-down">
                 <li><a href="."><i class="material-icons right">home</i> Home</a></li>
