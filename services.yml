@@ -8,7 +8,7 @@ spec:
    app: my-app
    env: prod
  ports:
- - nodePort: 32415
+ - nodePort: 32412
    protocol: TCP
    port: 8080
    targetPort: 8080
