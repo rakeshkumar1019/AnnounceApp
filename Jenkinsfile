@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: BRANCH_NAME, credentialsId: 'git_credential', url: 'https://github.com/rakeshkumar1019/java-jsp-diary.git'
+                git branch: BRANCH_NAME, credentialsId: 'git_credential', url: 'https://github.com/rakeshkumar1019/Community_Announcemnet_portal.git'
             }
         }
         
@@ -56,11 +56,11 @@ pipeline {
                     if(BRANCH_NAME == "master") { 
                          echo "master"
                         sshagent(['k8password']) {
-                                sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@13.233.199.52:/home/centos/"
+                                sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@52.66.178.252:/home/centos/"
                                 try{
-                                    sh "ssh centos@13.233.199.52 kubectl apply -f . "      
+                                    sh "ssh centos@52.66.178.252 kubectl apply -f . "      
                                 }catch(error){
-                                    sh "ssh centos@13.233.199.52 kubectl create -f . "      
+                                    sh "ssh centos@52.66.178.252 kubectl create -f . "      
                                 }   
                         }
                     }
@@ -69,11 +69,11 @@ pipeline {
                     if(BRANCH_NAME == "development") {
                       echo "dev"
                        sshagent(['k8password']) {
-                                sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@13.126.37.186:/home/centos/"
+                                sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@13.232.199.94:/home/centos/"
                                 try{
-                                    sh " ssh centos@13.126.37.186 kubectl apply -f . "      
+                                    sh " ssh centos@13.232.199.94 kubectl apply -f . "      
                                 }catch(error){
-                                    sh " ssh centos@13.126.37.186 kubectl create -f . "      
+                                    sh " ssh centos@13.232.199.94 kubectl create -f . "      
                                 }   
                         }
                     }
@@ -82,11 +82,11 @@ pipeline {
                     if(BRANCH_NAME == "staging") {
                         echo "staging"
                         sshagent(['k8password']) {
-                                sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@15.206.186.132:/home/centos/"
+                                sh "scp -o StrictHostKeyChecking=no services.yml java-app-pod.yml centos@3.110.164.213:/home/centos/"
                                 try{
-                                    sh " ssh centos@15.206.186.132 kubectl apply -f . "      
+                                    sh " ssh centos@3.110.164.213 kubectl apply -f . "      
                                 }catch(error){
-                                    sh " ssh centos@15.206.186.132 kubectl create -f .  "      
+                                    sh " ssh centos@3.110.164.213 kubectl create -f .  "      
                                 }   
                         }
 
